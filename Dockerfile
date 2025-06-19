@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:3.4
 
 # install a modern bundler version
 RUN apt install imagemagick; gem install bundler
