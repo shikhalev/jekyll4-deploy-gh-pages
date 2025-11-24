@@ -19,15 +19,16 @@ if [ ! -z $YARN_ENV ]; then
   yarn
 fi
 
+if [ -d _site ]; then
+  rm -rf _site
+fi
+
 JEKYLL_ENV=production NODE_ENV=production bundle exec jekyll build
 
 echo "Publishing..."
 
 cd ${DEST}
 
-if [ -d .git ]; then
-  rm -rf .git 
-fi
 git init
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
