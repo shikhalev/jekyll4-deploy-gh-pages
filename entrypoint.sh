@@ -19,8 +19,8 @@ if [ ! -z $YARN_ENV ]; then
   yarn
 fi
 
-if [ -d _site ]; then
-  rm -rf _site
+if [ -d "${DEST}" ]; then
+  rm -rf "${DEST}"
 fi
 
 JEKYLL_ENV=production NODE_ENV=production bundle exec jekyll build
